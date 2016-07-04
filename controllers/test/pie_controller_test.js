@@ -13,8 +13,14 @@ describe('PieController', function() {
       expect($scope.pies.length).toEqual(0);
     });
   });
-  describe('$scope.addPies', function() {
+  describe('$scope.addPie', function() {
     it('adds a pie to $scope.pies', function(){
+      var $scope = {};
+      var controller = $controller('PieController', {$scope: $scope});
+      expect($scope.pies.length).toEqual(0);
+      $scope.addPie({name: 'meat'});
+      expect($scope.pies.length).toEqual(1);
+      expect($scope.pies[0].name).toEqual('meat');
 
     });
   });
